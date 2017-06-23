@@ -3,17 +3,33 @@ var calc = require('../app/caclulator');
 
 describe("Calculator", function(done){
     describe("Arithmetic operations", function(){
-        it("Add two positive numbers", function(done){
-            let addResult = calc.sum(2, 3);
-            assert.equal(addResult, 5);
-            done();
-        });
-        it("Add one -ve numbers", function(done){
-            let addResult = calc.sum(2, -3);
-            assert.equal(addResult, -1);
-            done();
-        });
+        describe("Addition", function(){
+            it("Add two positive numbers", function(done){
+                let addResult = calc.sum(2, 3);
+                assert.equal(addResult, 5);
+                done();
+            });
 
+            it("Addition of two numbers is also a number", function(done){
+                let addResult = calc.sum(2,3);
+                assert.isNumber(addResult);
+                done();
+            });
+            
+        });
+        describe("Subtraction",function(){
+            it("Subtract one number from another", function(done){
+                let addResult = calc.sum(2, -3);
+                assert.equal(addResult, -1);
+                done();
+            });
+
+            it("Subtraction of two number yields a number", function(done){
+                let addResult = calc.sum(2,3);
+                assert.isNumber(addResult);
+                done();
+            });
+        });
 
         it("Subtract two numbers",function(done){
             let subResult = calc.sub(2,3);
@@ -30,7 +46,7 @@ describe("Calculator", function(done){
     });
 
     describe("Miscellaneous operations", function(){
-        it("Power of two number", function(done) {
+        it("Power of a number", function(done) {
             let powResult = calc.power(2,4);
             assert.equal(powResult, 16);
             done();
